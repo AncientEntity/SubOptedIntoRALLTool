@@ -1,17 +1,10 @@
 import socket
 import time
 
-host = '198.204.227.235'
-port = 15601
+host = '45.86.68.39'
+port = 7787
 
 print("INFO: Connecting")
-
-
-print("INFO: Collecting Subreddits")
-time.sleep(2)
-
-        
-print("INFO: Subreddits Collected")
 
 print("INFO: You may now type in a subreddit and see if its included in /r/all")
 print("INFO: type 'E' to close program, Checking is not capital sensitive.")
@@ -21,6 +14,7 @@ while active:
     response = input("Subreddit: ").lower()
     s = socket.socket()
     s.connect((host,port))
+    print("INFO: Requesting server info")
     s.send(response.encode())
     recv = s.recv(1024).decode()
     if("1" == recv):
